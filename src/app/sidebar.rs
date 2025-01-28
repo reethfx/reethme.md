@@ -37,7 +37,7 @@ pub fn sidebar(props: &SidebarProps) -> Html {
 
     html! {
         <div class="bg-[#171717] text-gray-200 w-64 h-screen flex flex-col shadow-lg">
-            <div class="p-4 border-b border-zinc-700">
+            <div class="p-4">
                 <h1 class="text-xl font-bold">{ "reethme." }</h1>
             </div>
             <nav class="flex-1 p-4 overflow-auto space-y-2">

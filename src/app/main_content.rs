@@ -49,7 +49,18 @@ pub fn main_content(props: &MainContentProps) -> Html {
                         if *is_preview {
                             // Preview mode
                             html! {
-                                <div class="mb-6">
+                                <div class="mb-6 bg-[#262626] rounded-lg overflow-hidden">
+                                    // Header
+                                    <div class="flex items-center justify-between p-2 bg-[#393939] border-b border-[#333]">
+                                        <div class="flex space-x-2">
+                                            <div class="w-3 h-3 bg-[#ff5f56] rounded-full"></div>
+                                            <div class="w-3 h-3 bg-[#ffbd2e] rounded-full"></div>
+                                            <div class="w-3 h-3 bg-[#27c93f] rounded-full"></div>
+                                        </div>
+                                        <div class="text-sm text-gray-400">
+                                            { "README.md" }
+                                        </div>
+                                    </div>                                   
                                     <h2 class="text-xl font-bold mb-2">{ &block.title }</h2>
                                     <div
                                         class="prose prose-invert"
