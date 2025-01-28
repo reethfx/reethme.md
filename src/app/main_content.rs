@@ -10,10 +10,8 @@ pub struct MainContentProps {
 
 #[function_component(MainContent)]
 pub fn main_content(props: &MainContentProps) -> Html {
-    // Estado para alternar entre edición y previsualización
     let is_preview = use_state(|| false);
 
-    // Función para renderizar Markdown a HTML
     fn render_markdown(markdown: &str) -> String {
         let parser = Parser::new(markdown);
         let mut html_output = String::new();
@@ -21,7 +19,6 @@ pub fn main_content(props: &MainContentProps) -> Html {
         html_output
     }
 
-    // Handler para cambiar entre vistas
     let toggle_preview = {
         let is_preview = is_preview.clone();
         Callback::from(move |_| {
@@ -31,7 +28,6 @@ pub fn main_content(props: &MainContentProps) -> Html {
 
     html! {
         <div class="flex-1 flex flex-col h-full bg-[#262626] text-white">
-            // Barra superior con botones de switch
             <div class="flex items-center p-3.5 bg-[#262626] border-b border-[#333]">
                 <button
                     onclick={toggle_preview.clone()}
@@ -47,12 +43,11 @@ pub fn main_content(props: &MainContentProps) -> Html {
                 </button>
             </div>
 
-            // Contenido principal (Editor o Previsualización)
             <div class="flex-1 flex justify-center items-start p-8 overflow-y-auto">
                 <div class="w-full max-w-4xl">
                     { for props.selected_blocks.iter().map(|block| {
                         if *is_preview {
-
+                            // Preview mode
                             html! {
                                 <div class="mb-6">
                                     <h2 class="text-xl font-bold mb-2">{ &block.title }</h2>
@@ -63,10 +58,9 @@ pub fn main_content(props: &MainContentProps) -> Html {
                                 </div>
                             }
                         } else {
-                            // Vista de edición (Recuadro de código con header fijo)
                             html! {
                                 <div class="mb-6 bg-[#262626] rounded-lg overflow-hidden">
-                                    // Header fijo
+                                    // Header
                                     <div class="flex items-center justify-between p-2 bg-[#393939] border-b border-[#333]">
                                         <div class="flex space-x-2">
                                             <div class="w-3 h-3 bg-[#ff5f56] rounded-full"></div>
@@ -78,7 +72,7 @@ pub fn main_content(props: &MainContentProps) -> Html {
                                         </div>
                                     </div>
 
-                                    // Área de edición (Textarea)
+                                    // Codearea
                                     <textarea
                                         class="w-full h-64 p-4 bg-[#2F2F2F] text-white resize-none font-mono focus:outline-none"
                                         value={block.content.clone()}

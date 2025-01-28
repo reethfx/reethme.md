@@ -11,7 +11,6 @@ pub struct SidebarHeaderProps {
 pub fn sidebar_header(props: &SidebarHeaderProps) -> Html {
     html! {
         <div class="p-4 border-b border-zinc-700 flex items-center justify-between">
-            // Main title
             <div>
                 <h1 class="text-lg font-bold">{ props.title }</h1>
             </div>
