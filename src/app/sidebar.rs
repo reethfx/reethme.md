@@ -74,10 +74,12 @@ pub fn sidebar(props: &SidebarProps) -> Html {
                                                 <li class="flex justify-between items-center p-2 rounded-md hover:bg-[#212121]">
                                                     <span class="truncate text-sm">{ &block_cloned.title }</span>
                                                     <button
-                                                        class="flex items-center justify-center w-6 h-6 rounded-full bg-pink-500 text-white hover:bg-pink-600"
+                                                        class="flex items-center justify-center w-4 h-4 rounded-full bg-pink-500 text-white hover:bg-pink-600"
                                                         onclick={Callback::from(move |_| on_add_cloned.emit(block_cloned.clone()))}
                                                     >
+                                                        <span>
                                                         { "" }
+                                                        </span>
                                                     </button>
                                                 </li>
                                             }

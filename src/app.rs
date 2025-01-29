@@ -11,17 +11,24 @@ pub fn app() -> Html {
     let topics = use_state(|| {
         let mut map = HashMap::new();
         map.insert(
-            "General".to_string(),
+            "Advanced".to_string(),
             vec![
-                Block { id: 1, title: "Introduction".into(), content: "Describe your project here...".into() },
-                Block { id: 2, title: "Installation".into(), content: "How to install the project...".into() },
+                Block { id: 1, title: "Usage".into(), content: "How to use the project...".into() },
+                Block { id: 2, title: "API Reference".into(), content: "API details here...".into() },
             ],
         );
         map.insert(
-            "Advanced".to_string(),
+            "Design".to_string(),
             vec![
-                Block { id: 3, title: "Usage".into(), content: "How to use the project...".into() },
-                Block { id: 4, title: "API Reference".into(), content: "API details here...".into() },
+                Block { id: 3, title: "Banner image".into(), content: "Image momentum".into() },
+                Block { id: 4, title: "Badges".into(), content: "Here goes the badeges".into() },
+            ],
+        );
+        map.insert(
+            "General".to_string(),
+            vec![
+                Block { id: 5, title: "Introduction".into(), content: "Describe your project here...".into() },
+                Block { id: 6, title: "Installation".into(), content: "How to install the project...".into() },
             ],
         );
         map
